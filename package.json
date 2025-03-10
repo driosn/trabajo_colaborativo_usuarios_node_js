@@ -1,0 +1,14 @@
+{
+  "name": "api_usuarios_nodejs",
+  "version": "1.0.0",
+  "description": "Api Usuarios Maestria Full Stack",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "David Rios y Jonas Maidana",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
