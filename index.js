@@ -13,7 +13,7 @@ const app = express();
 app.use(express.json());
 
 // Datos de prueba: un arreglo de objetos
-// declara 3 objetos
+// declara 3 objetos json
 let usuarios = [
   { id: 1, nombre: 'Juan', edad: 28 },
   { id: 2, nombre: 'Ana', edad: 22 },
