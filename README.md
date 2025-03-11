@@ -10,6 +10,9 @@ Miriam Lopez
 Jonas Maidana  
 David Rios  
 
+## Colección en Postman
+
+<img width="314" alt="Screenshot 2025-03-10 at 8 31 47 PM" src="https://github.com/user-attachments/assets/bbb7fe61-b679-4e31-86d5-9830da5b24a6" />
 
 ## Endpoint Inicial
 
