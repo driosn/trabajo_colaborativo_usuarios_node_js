@@ -6,9 +6,11 @@ Fundamentos de desarrollo Full Stack
 
 ## Integrantes
 
-Miriam Lopez  
-Jonas Maidana  
-David Rios  
+Miriam Lopez - Comentó Código para la creación del servidor, endpoints iniciales, obtención de usuarios, agregó commit subiendo cambios a rama main
+
+Jonas Maidana - Comentó código para la creación de usuarios, actualización, eliminar usuarios, creó un pull request de su rama a la rama main
+
+David Rios - Creó repositorio base en GitHub, subió proyecto a repositorio, creó colección en postman y probó todos los endpoints.
 
 ## Colección en Postman
 
