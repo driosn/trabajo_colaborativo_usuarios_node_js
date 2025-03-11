@@ -1,5 +1,9 @@
 # Trabajo colaborativo, API Usuarios NodeJS
 
+Trabajo colaborativo para el módulo
+Fundamentos de desarrollo Full Stack
+
+
 ## Integrantes
 
 Miriam Lopez  
