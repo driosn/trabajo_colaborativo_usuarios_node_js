@@ -5,6 +5,7 @@
 // 3.COMENTAR CODIGO
 //4. SUBIR EL PROYECTO A UN REPOSITORIO GIT 
 // Importar Express
+//inicia un servidor
 const express = require('express');
 const app = express();
 
@@ -12,25 +13,29 @@ const app = express();
 app.use(express.json());
 
 // Datos de prueba: un arreglo de objetos
+// declara 3 objetos
 let usuarios = [
   { id: 1, nombre: 'Juan', edad: 28 },
   { id: 2, nombre: 'Ana', edad: 22 },
   { id: 3, nombre: 'Luis', edad: 35 }
 ];
 // Endpoint Inicial
+//metodo de direccionamiento get
 
 app.get('/', (req, res) => {
     res.send('Bienvenido a la API REST con Express.js');
   });
 
 // Endpoint: Obtener todos los usuarios
+//realiza el envio de la lista de los usuario y envia el status 200
 
 app.get('/api/usuarios', (req, res) => {
   res.status(200).json(usuarios);
 });
 
 // Endpoint: Obtener un usuario por ID
-
+//realiza la busqueda de un usuario por su id de usuario, en caso de que no se encuentre el id saldra un mensaje de
+//usuario no encontrado y se manda el status 404
 app.get('/api/usuarios/:id', (req, res) => {
     const usuarioId = parseInt(req.params.id);
   const usuario = usuarios.find(u => u.id === usuarioId);
