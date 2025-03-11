@@ -39,43 +39,72 @@ app.get('/api/usuarios/:id', (req, res) => {
 });
 
 // Endpoint: Crear un nuevo usuario
-
+/**
+ * @route POST /api/usuarios
+ * @description Crea un nuevo usuario
+ * @param {string} nombre - Nombre de usuario
+ * @param {number} edad - Edad de usuario
+ * @returns {Object} Retorna el usuario creado
+ */
 app.post('/api/usuarios', (req, res) => {
-  const { nombre, edad } = req.body;
-  const nuevoUsuario = {
-    id: usuarios.length + 1,
-    nombre,
-    edad
-  };
-  usuarios.push(nuevoUsuario);
-  res.status(201).json(nuevoUsuario);
+    //Parameters nombre y edad
+    const { nombre, edad } = req.body;
+    // Nuevo usuario con los parametros recibidos y un id nuevo
+    const nuevoUsuario = {
+        id: usuarios.length + 1,
+        nombre,
+        edad
+    };
+    // Agregar el nuevo usuario al arreglo de usuarios
+    usuarios.push(nuevoUsuario);
+    // Enviar el nuevo usuario como respuesta con un status 201 (Created)
+    res.status(201).json(nuevoUsuario);
 });
 
 // Endpoint: Actualizar un usuario
-
+/**
+ * @route PUT /api/usuarios/:id
+ * @description Actualizar un usuario por ID
+ * @param {number} id - ID del usuario
+ * @param {string} [nombre] - Nombre del usuario
+ * @param {number} [edad] - Edad del usuario
+ * @returns {Object} Objeto de usuario actualizado o 404 si no se encuentra
+ */
 app.put('/api/usuarios/:id', (req, res) => {
-  const usuario = usuarios.find(u => u.id === parseInt(req.params.id));
-  if (!usuario) return res.status(404).send('Usuario no encontrado');
+    // Buscar el usuario por ID en el arreglo de usuarios
+    const usuario = usuarios.find(u => u.id === parseInt(req.params.id));
+    // Si no se encuentra el usuario, enviar un status 404 (Not Found)
+    if (!usuario) return res.status(404).send('Usuario no encontrado');
 
-  const { nombre, edad } = req.body;
-  usuario.nombre = nombre || usuario.nombre;
-  usuario.edad = edad || usuario.edad;
-
-  res.status(200).json(usuario);
+    // Actualizar el usuario con los nuevos datos enviados en el body
+    const { nombre, edad } = req.body;
+    usuario.nombre = nombre || usuario.nombre;
+    usuario.edad = edad || usuario.edad;
+    // Enviar el usuario actualizado como respuesta
+    res.status(200).json(usuario);
 });
 
 // Endpoint: Eliminar un usuario
-
+/**
+ * @route DELETE /api/usuarios/:id
+ * @description Eliminar un usuario por ID
+ * @param {number} id - ID del usuario
+ * @returns {string} Mensaje de confirmación o 404 si no se encuentra
+ */
 app.delete('/api/usuarios/:id', (req, res) => {
-  const usuarioIndex = usuarios.findIndex(u => u.id === parseInt(req.params.id));
-  if (usuarioIndex === -1) return res.status(404).send('Usuario no encontrado');
+    // Buscar el usuario por ID en el arreglo de usuarios
+    const usuarioIndex = usuarios.findIndex(u => u.id === parseInt(req.params.id));
+    // Si no se encuentra el usuario, enviar un status 404
+    if (usuarioIndex === -1) return res.status(404).send('Usuario no encontrado');
 
-  const usuarioEliminado = usuarios.splice(usuarioIndex, 1);
-  res.status(200).json('usuarioEliminado');
+    // Eliminar el usuario del arreglo de usuarios
+    const usuarioEliminado = usuarios.splice(usuarioIndex, 1);
+    // Enviar un mensaje de confirmación
+    res.status(200).json('usuarioEliminado');
 });
 
 // Configurar el puerto y levantar el servidor
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`Servidor escuchando en puerto ${PORT}`);
+    console.log(`Servidor escuchando en puerto ${PORT}`);
 });
